@@ -90,6 +90,10 @@ public extension SCNVector3 {
     func getSimd() -> SIMD3<Double> {
         return SIMD3(self)
     }
+    
+    static func / (lhs: SCNVector3, rhs: Double) -> SCNVector3 {
+        SCNVector3Make(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs)
+    }
       
 }
 
