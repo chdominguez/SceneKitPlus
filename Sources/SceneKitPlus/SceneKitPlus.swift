@@ -95,7 +95,7 @@ public extension SCNVector3 {
         SCNVector3Make(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs)
     }
     
-    static prefix func - (rhs: SCNVector3) {
+    static prefix func - (rhs: SCNVector3) -> SCNVector3 {
         SCNVector3Make(-rhs.x, -rhs.y, -rhs.z)
     }
       
