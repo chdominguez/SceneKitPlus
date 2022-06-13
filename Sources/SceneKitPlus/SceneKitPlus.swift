@@ -5,7 +5,7 @@
 //  Created by Christian Dominguez on 18/4/22.
 //
 
-import SceneKit
+@_exported import SceneKit
 import SwiftUI
 
 ///Universal Float (iOS) or CGFloat (macOS) depending on the platform
@@ -13,6 +13,12 @@ import SwiftUI
 typealias UFloat = CGFloat
 #elseif os(iOS)
 typealias UFloat = Float
+#endif
+
+#if os(macOS)
+typealias UColor = NSColor
+#elseif os(iOS)
+typealias UColor = UIColor
 #endif
 
 extension SCNVector3: Equatable {
