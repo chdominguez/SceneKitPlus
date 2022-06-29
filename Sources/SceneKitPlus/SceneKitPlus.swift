@@ -281,10 +281,6 @@ public extension SCNGeometry {
     }
 }
 
-public func SCNVector3Make(_ x: Double, _ y: Double, _ z: Double) -> SCNVector3 {
-    return SCNVector3(x, y, z)
-}
-
 public extension Double {
     var ufloat: UFloat {
         return UFloat(self)
