@@ -14,11 +14,19 @@ public typealias UFloat = CGFloat
 public typealias UFloat = Float
 #endif
 
+// Depending on the platform, different color frameworks have to be used
 #if os(macOS)
 public typealias UColor = NSColor
 #elseif os(iOS)
 public typealias UColor = UIColor
 #endif
+
+public extension Color {
+    /// SceneKit better handles either UIColor or NSColor, UColor transforms SwiftUI Color to either depending on the platform. uColor is the universal color for both platforms.
+    var uColor: UColor {
+        return UColor(self)
+    }
+}
 
 extension SCNVector3: Equatable {
     public static func == (lhs: SCNVector3, rhs: SCNVector3) -> Bool {
