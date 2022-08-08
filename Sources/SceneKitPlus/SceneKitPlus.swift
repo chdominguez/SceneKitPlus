@@ -90,7 +90,7 @@ public extension SCNVector3 {
         let y = self.dy.rounded(toPlaces: n)
         let z = self.dz.rounded(toPlaces: n)
         
-        return SCNVector3Make(x, y, z)
+        return SCNVector3(x, y, z)
     }
     
     mutating func roundTo(n: Int) {
@@ -125,7 +125,7 @@ public extension SCNVector3 {
     
     /// Returns the scaled vector without modifying the original vector
     func scaled(by rhs: Double) -> SCNVector3 {
-        SCNVector3Make(dx*rhs, dy*rhs, dz*rhs)
+        SCNVector3(dx*rhs, dy*rhs, dz*rhs)
     }
     
     func rotated(by angle: Double, withRespectTo n: SCNVector3) -> SCNVector3 {
@@ -148,7 +148,7 @@ public extension SCNVector3 {
     ///   - rhs: The scaling factor
     /// - Returns: The scaled vector
     static func * (lhs: SCNVector3, rhs: Double) -> SCNVector3 {
-        SCNVector3Make(lhs.dx * rhs, lhs.dy * rhs, lhs.dz * rhs)
+        SCNVector3(lhs.dx * rhs, lhs.dy * rhs, lhs.dz * rhs)
     }
     
     /// Hability to divide a vector by a scalar factor in the form v / t
@@ -157,7 +157,7 @@ public extension SCNVector3 {
     ///   - rhs: The dividing factor
     /// - Returns: The divided vector
     static func / (lhs: SCNVector3, rhs: Double) -> SCNVector3 {
-        SCNVector3Make(lhs.dx / rhs, lhs.dy / rhs, lhs.dz / rhs)
+        SCNVector3(lhs.dx / rhs, lhs.dy / rhs, lhs.dz / rhs)
     }
     
     
@@ -165,7 +165,7 @@ public extension SCNVector3 {
     /// - Parameter rhs: The vector to be negated
     /// - Returns: The negated vector
     static prefix func - (rhs: SCNVector3) -> SCNVector3 {
-        SCNVector3Make(-rhs.x, -rhs.y, -rhs.z)
+        SCNVector3(-rhs.x, -rhs.y, -rhs.z)
     }
     
     
@@ -287,10 +287,6 @@ public extension SCNGeometry {
 
         return SCNGeometry(sources: [source], elements: [element])
     }
-}
-
-public func SCNVector3Make(_ x: Double, _ y: Double, _ z: Double) -> SCNVector3 {
-    return SCNVector3(x, y, z)
 }
 
 public extension Double {
