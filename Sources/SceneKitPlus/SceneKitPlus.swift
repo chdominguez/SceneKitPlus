@@ -10,14 +10,14 @@ import SceneKit
 ///Universal Float (iOS) or CGFloat (macOS) depending on the platform
 #if os(macOS)
 public typealias UFloat = CGFloat
-#elseif os(iOS)
+#elseif os(iOS) || os(visionOS)
 public typealias UFloat = Float
 #endif
 
 // Depending on the platform, different color frameworks have to be used
 #if os(macOS)
 public typealias UColor = NSColor
-#elseif os(iOS)
+#elseif os(iOS) || os(visionOS)
 public typealias UColor = UIColor
 #endif
 
